@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+saltz1998的廢文
+{% endblock %}
+{% block titlemessage %}
+    <h1>欸哩的廢文網站</h1>
+{% endblock %}
+{% block content %}
+        <table class="table table-striped">
+          <tr><th>編號</th><th>主題</th><th>張貼時間</th></tr>
+          {% for post in posts %}
+          <tr>
+            <td>{{ post.id }}</td>
+            <td>
+              <a href="/post/{{post.slug}}/">{{ post.title }}</a>
+            </td>
+            <td>
+              {{ post.pub_date }}
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+        本網頁被瀏覽了{{ visits }}次
+{% endblock %}
