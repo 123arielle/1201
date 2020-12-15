@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}
+我有話要說
+{% endblock %}
+{% block content %}
+<div class='container'>
+
+<form name='my form' action='/' method='GET'>
+    <lable for='user_id'>Your ID:</lable>
+    <input id='user_id' type='text' name='user_id'>
+    <lable for='user_pass'>Your Password:</lable>
+    <input id='user_pass' type='password' name='user_pass'>
+    <input type='submit' value='送出資料'>
+    <input type='reset' name='清除重填'>
+</div>
+{% endblock %}
+        <hr>
+        <i>現在時刻：{{ now }}</i>
+

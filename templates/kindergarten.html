@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}
+黑皮幼兒園招生人數統計圖表
+{% endblock %}
+{% block titlemessage %}
+    <h1>黑皮幼兒園招生人數統計圖表</h1>
+{% endblock %}
+{% block content %}
+<center>
+<table width=800>
+  <tr><td>
+<canvas id="line-chart" width="800" height="450"></canvas>
+</td></tr>
+</table>
+</center>
+<script>
+new Chart(document.getElementById("line-chart"), {
+  type: 'line',
+  data: {
+    labels: [2015,2016,2017,2018,2019,2020],
+    datasets: [{ 
+        data: [
+        45,36,37,32,25,28
+        ],
+        label: "樹林分校",
+        borderColor: "#3e95cd",
+        fill: false
+      }, { 
+        data: [
+        34,39,32,29,30,28
+        ],
+        label: "板橋分校",
+        borderColor: "#8e5ea2",
+        fill: false
+      }, { 
+        data: [
+        41,38,30,32,27,26
+        ],
+        label: "新莊分校",
+        borderColor: "#3cba9f",
+        fill: false
+      }, 
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: '黑皮幼兒園各分校歷年招生人數'
+    }
+  }
+});
+</script>
+     
+{% endblock %}

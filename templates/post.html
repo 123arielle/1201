@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
+
 {% block title %}
 {{ post.title }}
 {% endblock %}
 {% block titlemessage %}
-    <h1>{{post.title}}</h1>
+    <h1><b>{{post.title}}</b></h1>
 {% endblock %}
 {% block content %}
       <div class="card">
         <div class="card-header">
-          {{ post.title }}
+          <b>{{ post.title }}</b>
         </div>
         <div class="card-body">
           {{ post.body | linebreaks }}
@@ -17,4 +18,5 @@
           {{ post.pub_date }}
         </div>
       </div>
+</div>
 {% endblock %}
