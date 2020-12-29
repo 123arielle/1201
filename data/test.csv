@@ -1,1 +1,10 @@
-import 
+import csv
+response = HttpResponse(content_type='text/csv')
+writer = csv.writer(response)
+
+writer.writerrow(['School','President','recruit_nummber'])
+writer.writerrow(['台南一中','郭靖','231'])
+writer.writerrow(['台南二中','楊小花','163'])
+writer.writerrow(['台南女中','王大林','102'])
+
+return response

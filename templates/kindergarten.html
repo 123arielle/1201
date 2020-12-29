@@ -3,9 +3,29 @@
 黑皮幼兒園招生人數統計圖表
 {% endblock %}
 {% block titlemessage %}
-    <h1>黑皮幼兒園招生人數統計圖表</h1>
+    <h1><b><center><font color="000000">黑皮幼兒園招生人數統計圖表</h1></font></center></b></h1>
 {% endblock %}
 {% block content %}
+<button>
+<a href="/kindergarten/">所有分校</a>
+</button>
+{% for kdgt in kindergartens %}
+    <button class="btn btn-sm">
+        <a href="/kindergarten/{{kindergarten.id}}/">{{kindergarten.branch_school}}</a>
+    </button>
+{% endfor %}
+
+<button class = 'btn btn-sm'>
+    <a href='/kindergarten/2'>新莊分校</a>
+</button>
+
+<select name="選擇分校">
+    <option value="">選擇分校</option>
+    <option value="新莊分校">新莊分校</option>
+    <option value="板橋分校">板橋分校</option>
+    <option value="樹林分校">Hamster</option>
+</select>
+
 <center>
 <table width=800>
   <tr><td>

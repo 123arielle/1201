@@ -1,35 +1,24 @@
 {% extends 'base.html' %}
 {% block title %}
-欸哩的統計圖表
+歷年來台(亞洲)
 {% endblock %}
 {% block titlemessage %}
-    <h1><b><center><font color="000000">欸哩的統計圖表</font></center></b></h1>
+    <h1><b><center><font color="000000">歷年來台(亞洲)</font></center></b></h1>
 {% endblock %}
 {% block content %}
 <button>
-<a href="/mychart/">所有分店</a>
+<a href="/asiavisitor/">所有國家</a>
 </button>
-{% for branch in branches %}
+<button>
+<a href="/asiavisitor/1">Japan</a>
+</button>
+{% for asiavs in asiavisitors %}
     <button class="btn btn-sm">
-        <a href="/mychart/{{branch.id}}/">{{branch.shop_name}}</a>
+        <a href="/asiavisitor/{{asiavs.id}}/">{{asiavs.country}}</a>
     </button>
 {% endfor %}
 <br>
-<select onChange="location = this.options[this.selectedIndex].value;">
-<option value="#">選擇年/月</option><br>
-<option input type="button" style="background-color:#FFD4D4" value="/chartbydate/2020/9">2020/9</option><br>
-<option input type="button" style="background-color:#FFD4D4"value="/chartbydate/2020/10">2020/10</option><br>
-<option input type="button" style="background-color:#FFD4D4"value="/chartbydate/2020/11">2020/11</option><br>
-</select>
-<br>
-<select onChange="location = this.options[this.selectedIndex].value;">
-<option value="#">選擇分店</option>
-<option value="/mychart/">所有分店</option>
-<option value="/mychart/1">高雄總店</option>
-<option value="/mychart/2">台南店</option>
-<option value="/mychart/3">台中店</option>
-<option value="/mychart/4">台北店</option>
-</select>
+
 <center>
 <table width=800>
   <tr><td>
@@ -44,14 +33,14 @@ var myChart = new Chart(ctx, {
     data: {
         labels: [
             {% for item in data %}
-                '{{ item.income_month }}{{ item.branch}}',
+                '{{ item.year }}{{ item.country }}',
             {% endfor %}        
         ],
         datasets: [{
-            label: "各分店的營收情形",
+            label: "亞洲國家來台情形",
             data: [
                 {% for item in data %}
-                    '{{ item.income }}',
+                    '{{ item.visitors_num }}',
                 {% endfor %}
             ],
             backgroundColor: [

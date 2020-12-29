@@ -53,3 +53,40 @@ class SchoolStu(models.Model):
 
     def __str__(self):
         return str(self.recruit_num)
+
+class Photo(models.Model):
+    image = models.ImageField(upload_to='image/',blank=False, null=False)
+    upload_date = models.DateField(default=timezone.now)
+
+class Visitor(models.Model):
+    states = models.CharField(max_length=6)
+    country = models.CharField(max_length=10)
+    year = models.CharField(max_length=4)
+    visitor_num = models.PositiveIntegerField()
+
+    def __str__(self):
+        return str(self.visitor_num)
+class Asiacountry(models.Model):
+    asia_country = models.CharField(max_length=100)
+    leader = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return (self.asia_country)
+
+class Visitors(models.Model):
+    states = models.CharField(max_length=6)
+    country = models.CharField(max_length=10)
+    year = models.CharField(max_length=4)
+    visitors_num = models.PositiveIntegerField()
+
+    def __str__(self):
+        return str(self.visitors_num)
+
+class HelloVisit(models.Model):
+    states = models.CharField(max_length=6)
+    country = models.CharField(max_length=10)
+    year = models.CharField(max_length=4)
+    visitors_num = models.PositiveIntegerField()
+
+    def __str__(self):
+        return str(self.visitors_num)
